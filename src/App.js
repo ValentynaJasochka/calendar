@@ -1,10 +1,8 @@
-
+import { CircleBalance } from "./Components/Circle/Circle";
 
 function App() {
   return (
-    <div >
-     
-    </div>
+    <CircleBalance/>
   );
 }
 
