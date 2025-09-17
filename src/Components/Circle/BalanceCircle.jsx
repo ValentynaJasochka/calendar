@@ -1,5 +1,5 @@
-import { Circle } from "./Circle.styled"
-export const  CircleBalance =  () =>{
+import { Circle } from "./BalanceCircle.styled"
+export const  BalanceCircle =  () =>{
   return (
     <Circle>
       <span>You have all time in the world</span>      
