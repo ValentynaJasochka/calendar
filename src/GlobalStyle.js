@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import 'modern-normalize'
 export const GlobalStyle = createGlobalStyle`
 body {
   margin: 0;
@@ -15,5 +16,10 @@ code {
 }
 ul,li {
   list-style: none;
+}
+img {
+  display:block;
+  max-width: 100%;
+  object-fit: cover;
 }
 `

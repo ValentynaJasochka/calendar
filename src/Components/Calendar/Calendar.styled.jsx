@@ -17,13 +17,13 @@ export const DayWrapper = styled.div`
   color: #0a334d;
   border: 2px solid #fbf7f7d3;
   /* background-color: #7b7777d4; */
-  background-color: ${({isWeekend, today}) => {
-  if (isWeekend) {
-    return "#7b7777d4" 
-  } else if (today) {
-    return "#ef99bad2" 
+  background-color: ${(props) => {
+  if (props.isWeekend) {
+    return props.theme.colors.darkgrey 
+  } else if (props.today) {
+    return props.theme.colors.darkpink
   } else {
-    return "#d7d2d2d6" 
+    return props.theme.colors.lightgrey 
   }
 
    } }

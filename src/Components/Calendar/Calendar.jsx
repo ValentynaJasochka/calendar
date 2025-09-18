@@ -1,36 +1,11 @@
-// import moment from 'moment';
-import { CalendarTable, DayWrapper } from './Calendar.styled';
-// moment.updateLocale('en', { week: { dow: 1 } });
-// const startDay = moment().startOf('months').startOf('week');
-// const thisDay = moment().format('LL');
+import { CalendarTable, DayWrapper } from "./Calendar.styled";
 
-
-
-// const day = startDay.clone().subtract(1, 'day');
-// const daysArray = [...Array(31)].map(() => day.add(1, 'day').clone());
-
-// export const Calendar = () => {
-//   return (
-//     <CalendarTable>
-//       {daysArray.map(dayItem => (
-//         <DayWrapper
-//           key={dayItem.format('MMM Do YY')}
-//           isWeekend={dayItem.day() === 6 || dayItem.day() === 0}
-//           today = {thisDay===dayItem.format('LL')}
-//         >
-//           <div>{dayItem.format('LL')}</div>
-//           <div>Tasks</div>
-//         </DayWrapper>
-//       ))}
-//     </CalendarTable>
-//   );
-// };
 // Функція для форматування дати у стилі "Month Day, Year"
 const formatDateLong = (date) =>
-  date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+  date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 
 // Отримуємо сьогоднішню дату (без часу)
@@ -40,9 +15,11 @@ today.setHours(0, 0, 0, 0);
 // Перший день поточного місяця
 const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
 // 🔹 кількість днів у місяці
-const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-
-
+const daysInMonth = new Date(
+  today.getFullYear(),
+  today.getMonth() + 1,
+  0
+).getDate();
 
 // 🔹 генеруємо точний масив днів
 const daysArray = [...Array(daysInMonth)].map((_, i) => {
