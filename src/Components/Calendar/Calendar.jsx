@@ -1,27 +1,51 @@
-import moment from 'moment';
-import { CalendarTable, DayWrapper } from './Calendar.styled';
-moment.updateLocale('en', { week: { dow: 1 } });
-const startDay = moment().startOf('months').startOf('week');
-const thisDay = moment().format('LL');
+import { CalendarTable, DayWrapper } from "./Calendar.styled";
 
+// Функція для форматування дати у стилі "Month Day, Year"
+const formatDateLong = (date) =>
+  date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 
+// Отримуємо сьогоднішню дату (без часу)
+const today = new Date();
+today.setHours(0, 0, 0, 0);
 
-const day = startDay.clone().subtract(1, 'day');
-const daysArray = [...Array(31)].map(() => day.add(1, 'day').clone());
+// Перший день поточного місяця
+const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+// 🔹 кількість днів у місяці
+const daysInMonth = new Date(
+  today.getFullYear(),
+  today.getMonth() + 1,
+  0
+).getDate();
+
+// 🔹 генеруємо точний масив днів
+const daysArray = [...Array(daysInMonth)].map((_, i) => {
+  const d = new Date(firstDayOfMonth);
+  d.setDate(firstDayOfMonth.getDate() + i);
+  return d;
+});
 
 export const Calendar = () => {
   return (
     <CalendarTable>
-      {daysArray.map(dayItem => (
-        <DayWrapper
-          key={dayItem.format('MMM Do YY')}
-          isweekend={dayItem.day() === 6 || dayItem.day() === 0}
-          today = {thisDay===dayItem.format('LL')}
-        >
-          <div>{dayItem.format('LL')}</div>
-          <div>Tasks</div>
-        </DayWrapper>
-      ))}
+      {daysArray.map((dayItem) => {
+        const isWeekend = dayItem.getDay() === 0 || dayItem.getDay() === 6; // неділя або субота
+        const isToday = dayItem.getTime() === today.getTime();
+
+        return (
+          <DayWrapper
+            key={dayItem.toISOString()}
+            isWeekend={isWeekend}
+            today={isToday}
+          >
+            <div>{formatDateLong(dayItem)}</div>
+            <div>Tasks</div>
+          </DayWrapper>
+        );
+      })}
     </CalendarTable>
   );
 };

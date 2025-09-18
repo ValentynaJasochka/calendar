@@ -17,7 +17,6 @@ export const DayWrapper = styled.div`
   color: #0a334d;
   border: 2px solid #fbf7f7d3;
   /* background-color: #7b7777d4; */
-  /* background-color: ${({isWeekend, today}) => (isWeekend ? "#7b7777d4" : "#d7d2d2d6") } */
   background-color: ${({isWeekend, today}) => {
   if (isWeekend) {
     return "#7b7777d4" 
