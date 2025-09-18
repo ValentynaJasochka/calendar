@@ -10,6 +10,6 @@ export const  BalanceTracker =  () =>{
       <Title>Weekly Balance Circle</Title>
       <WeeklyCircle></WeeklyCircle>
     </CircleContainer>
-    
+   
    </Container>)
 }
