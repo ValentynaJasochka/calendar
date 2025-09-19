@@ -1,4 +1,5 @@
-import { CalendarTable, DayWrapper } from "./Calendar.styled";
+import { CalendarTable, DayWrapper,TimeIcon } from "./Calendar.styled";
+
 
 // Функція для форматування дати у стилі "Month Day, Year"
 const formatDateLong = (date) =>
@@ -42,6 +43,7 @@ export const Calendar = () => {
             today={isToday}
           >
             <div>{formatDateLong(dayItem)}</div>
+            <TimeIcon />
             <div>Tasks</div>
           </DayWrapper>
         );
