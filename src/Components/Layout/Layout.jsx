@@ -1,4 +1,5 @@
 import { Container, Navigation } from "./Layout.styled";
+import { Outlet } from "react-router"
 // import {  Outlet } from 'react-router-dom';
 export const Layout = () => {
   return (
@@ -13,8 +14,8 @@ export const Layout = () => {
         </div>
       </header>
       <main>
-
-        {/* <Outlet /> */}</main>
+        <Outlet/>
+        </main>
     </Container>
   );
 };
