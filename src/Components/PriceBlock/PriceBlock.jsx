@@ -1,5 +1,6 @@
 import { BasicForm } from "./BasicForm"
 import { FeatureForm } from "./FeatureForm"
+import { PricingBlockUI } from "./PriceBlockUa"
 
 export const  PriceBlock=  () =>{
   return (
@@ -8,5 +9,6 @@ export const  PriceBlock=  () =>{
    
    <FeatureForm/>
    <BasicForm/>
+   <PricingBlockUI/>
    </div>)
 }
