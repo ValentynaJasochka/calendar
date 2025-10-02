@@ -1,6 +1,6 @@
 import { BasicForm } from "./BasicForm"
 import { FeatureForm } from "./FeatureForm"
-import { PricingBlockUI } from "./PriceBlockUa"
+import { PricingBlockUI } from "./PriceBlockUI"
 
 export const  PriceBlock=  () =>{
   return (
